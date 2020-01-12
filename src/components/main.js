@@ -4,7 +4,7 @@ import axios from 'axios';
 
 class Main extends Component {
     state = { 
-        users : ''
+        users : '',
      }
 
     componentWillReceiveProps(nextProps){
@@ -14,13 +14,18 @@ class Main extends Component {
                 console.log(response.data.items);
                 
                 this.setState({users:response.data.items});
+            }).catch(error=>{
+                console.log(error);
             });
         
     }
 
     render() { 
 
-        if(this.state.users){
+        
+
+        
+        if(this.state.users.length ){
             return (<div className="mainWrap">
             {
                 this.state.users.map((item,index)=>(
@@ -36,6 +41,8 @@ class Main extends Component {
         }else{
             return <div className='startNote'>Please type in the username you want to look up</div>
         }
+
+        
         
         
          

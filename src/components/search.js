@@ -5,9 +5,14 @@ class Search extends Component {
     state = {  }
 
     handleClick = ()=>{
+        if(!this.input.value){
+            alert('please enter a username !');
+            return false;
+        }
         this.props.searchName(this.input.value);
         this.input.value = '';
     }
+
 
     render() { 
         return ( 
